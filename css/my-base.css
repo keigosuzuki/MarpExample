@@ -1,0 +1,145 @@
+/* @theme my-base */
+/* original: rnd195 github.com/rnd195 */
+/* beam license: GNU GPLv3 github.com/rnd195/my-marp-themes/blob/live/licenses/LICENSE_beam */
+/* beamer license: GNU GPLv2 github.com/rnd195/my-marp-themes/blob/live/licenses/LICENSE_GPLv2 */
+
+@import 'default';
+
+:root {
+  font-family: "Source Han Sans JP", sans-serif;
+  --light-black: #3c3c3c;
+  --jaxa-blue: #0061b0;
+  --jaxa-red: #b00600;
+  --jaxa-green: #aab000;
+  --isas-purple: #46028e;
+  
+  --col_number: 2;
+}
+
+section {
+  justify-content: start;
+  padding-top: 64pt;
+  display: flex;
+  flex-direction: column;
+  cursor: url("css/cursor.svg") 20 10, auto;
+}
+
+footer {
+  font-size: 0.6em;
+  position: absolute;
+  text-align: left;
+  top: 96%;
+  width: 100%;
+  right: 0;
+  left: 0.5em;
+  color: var(--light-black);
+}
+
+/* Formatting page numbers  */
+section::after {
+  font-size: 0.6em;
+  /* From github.com/yhatt/marp/issues/263 */
+  content: attr(data-marpit-pagination) " / " attr(data-marpit-pagination-total);
+  position: absolute;
+  text-align: right;
+  top: 96%;
+  width: 100%;
+  right: 0;
+  left: -0.5em;
+  color: var(--light-black);
+}
+
+/* --- TITLES --- */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--light-black);
+}
+
+h1:nth-of-type(1) {
+  color: #ffffff;
+  background-color: var(--jaxa-blue);
+  border-top: 0.3em solid var(--jaxa-blue);
+  padding: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 1.5em;
+  text-indent: 0.5em;
+}
+
+/* Font style */
+strong {
+  font-style: italic;
+  font-weight: normal;
+  color: var(--jaxa-red);
+}
+
+em {
+  color: var(--jaxa-green);
+}
+
+em strong {
+  font-weight: normal;
+  color: var(--jaxa-blue);
+}
+
+/* Figure placement */
+img[alt~="c"] {
+  display: block;
+  margin: 0 auto;
+}
+
+img[alt~="l"] {
+  float: left;
+  margin: 0 16pt 16pt 0;
+}
+
+img[alt~="r"] {
+  float: right;
+  margin: 0 16pt 16pt 0;
+}
+
+/* --- CUSTOM CLASSES AND KEYWORDS --- */
+/* <!-- _class: title --> */
+/* Transforms a slide to a title page - intended for the first slide */
+section.title {
+  --title-height: 160pt;
+  --subtitle-height: 40pt;
+  overflow: visible;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr var(--title-height) var(--subtitle-height) 1fr;
+  grid-template-areas: "." "title" "subtitle" ".";
+}
+
+section.title h1,
+section.title h2 {
+  color: var(--light-black);
+  background-color: #ffffff;
+  border-top: 0;
+  text-align: left;
+  height: var(--area-height);
+  line-height: var(--area-height);
+  grid-area: subtitle;
+  --area-height: var(--subtitle-height);
+  font-size: calc(var(--area-height) * 0.6);
+  text-indent: 0;
+}
+
+section.title h1 {
+  grid-area: title;
+  --area-height: calc(var(--area-height) * 0.6);
+  font-size: calc(var(--title-height) * 0.3);
+}
+
+/* <div class="columns"> */
+div.columns {
+	display: grid;
+	grid-template-columns: repeat(var(--col_number), minmax(0, 1fr));
+	gap: 1rem;
+}
