@@ -252,8 +252,7 @@ def hello_jaxa():
 - `tinytext` (70%)、`largetext` (115%)、`hugetext` (130%) も使用可能です。
 
 ```bash
-$ git clone https://github.com/favourhong/Awesome-Marp.git
-$ marp --theme ./my-awesome-base.css --watch ./test-presentation.md
+$git clone [https://github.com/favourhong/Awesome-Marp.git$](https://github.com/favourhong/Awesome-Marp.git$) marp --theme ./my-awesome-base.css --watch ./test-presentation.md
 ```
 
 ---
