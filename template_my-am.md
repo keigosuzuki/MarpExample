@@ -6,12 +6,16 @@ header: ""
 footer: "© 2026 JAXA/ISAS Presentation Template Test"
 ---
 
+<!-- _class: title -->
+<!-- _paginate: false -->
 # JAXA / ISAS 統合プレゼンテーマ
 ## Awesome-Marp × my-base スタイル網羅テスト
 ### 発表者氏名 / 所属部署・研究室
 
 ---
 
+<!-- _class: cover_a -->
+<!-- _paginate: false -->
 # 表紙スタイル A (Cover A)
 ###### 上部グラデーションと白抜きタイトルのテスト
 **サブタイトルや発表日時を記述します**
@@ -19,6 +23,8 @@ footer: "© 2026 JAXA/ISAS Presentation Template Test"
 
 ---
 
+<!-- _class: cover_b -->
+<!-- _paginate: false -->
 # 表紙スタイル B (Cover B)
 ###### ボックス型タイトルバナーのテスト
 **プレゼンテーションのサブタイトルや詳細情報**
@@ -26,6 +32,7 @@ footer: "© 2026 JAXA/ISAS Presentation Template Test"
 
 ---
 
+<!-- _class: toc_a -->
 # 目次 (Table of Contents)
 
 - **01.** 文字装飾とタイポグラフィの確認
@@ -50,6 +57,7 @@ footer: "© 2026 JAXA/ISAS Presentation Template Test"
 
 ---
 
+<!-- _class: cols-2 -->
 ## 2-1. 2カラム均等分割 (50% : 50%)
 ### `cols-2` クラスによる左右平行配置のテスト
 
@@ -64,18 +72,19 @@ footer: "© 2026 JAXA/ISAS Presentation Template Test"
 <div class="rdiv">
 
 #### 右パネル (Right Panel)
-```python
-# コードブロックの表示テスト
-def hello_jaxa():
-    mission = "Hayabusa2"
-    print(f"Mission: {mission}")
-    return True
-```
+    ```python
+    # コードブロックの表示テスト
+    def hello_jaxa():
+        mission = "Hayabusa2"
+        print(f"Mission: {mission}")
+        return True
+    ```
 
 </div>
 
 ---
 
+<!-- _class: cols-2-64 -->
 ## 2-2. 左右非対称カラム (60% : 40%)
 ### `cols-2-64` や `cols-2-37` による割合調整のテスト
 
@@ -101,6 +110,7 @@ def hello_jaxa():
 
 ---
 
+<!-- _class: cols-3 -->
 ## 2-3. 3カラムレイアウト
 ### `cols-3` による3分割のテスト
 
@@ -131,6 +141,7 @@ def hello_jaxa():
 
 ---
 
+<!-- _class: bq-blue -->
 ## 3-1. Beamer風ボックス: JAXA Blue (基本)
 ### `bq-blue` クラスによる定理・定義ボックスのテスト
 
@@ -142,6 +153,7 @@ def hello_jaxa():
 
 ---
 
+<!-- _class: bq-red -->
 ## 3-2. Beamer風ボックス: JAXA Red (警告・重要)
 ### `bq-red` クラスによる警告・重要事項ボックスのテスト
 
@@ -153,6 +165,7 @@ def hello_jaxa():
 
 ---
 
+<!-- _class: bq-green -->
 ## 3-3. Beamer風ボックス: JAXA Green / ISAS Purple
 ### `bq-green` や `bq-purple` のカラーバリエーション
 
@@ -163,6 +176,7 @@ def hello_jaxa():
 
 ---
 
+<!-- _class: cols2_ol_sq -->
 ## 4-1. リストの2列分欄と装飾バッジ (数値リスト)
 ### `cols2_ol_sq` による番号付きリストの2列自動配置
 
@@ -175,6 +189,7 @@ def hello_jaxa():
 
 ---
 
+<!-- _class: cols2_ul_ci -->
 ## 4-2. リストの2列分欄 (箇条書き・円形バッジ)
 ### `cols2_ul_ci` によるバッジ装飾テスト
 
@@ -187,6 +202,7 @@ def hello_jaxa():
 
 ---
 
+<!-- _class: rows-2 -->
 ## 5-1. 上下2段分割レイアウト
 ### `rows-2` クラスによる上下配置（上段 `tdiv` / 下段 `bdiv`）
 
@@ -211,6 +227,7 @@ def hello_jaxa():
 
 ---
 
+<!-- _class: pin-3 -->
 ## 5-2. ピン型（上1・下2）レイアウト
 ### `pin-3` クラスによる品字型（上段全幅＋下段左右2分割）のテスト
 
@@ -237,6 +254,7 @@ def hello_jaxa():
 
 ---
 
+<!-- _class: navbar -->
 # ナビゲーションバーのテスト
 ###### スライド上部にカテゴリや進捗状況を表示
 
@@ -245,24 +263,30 @@ def hello_jaxa():
 
 ---
 
+<!-- _class: smalltext -->
 ## 5-3. フォントサイズの動的変更 (`smalltext` / `largetext`)
 ### 情報量が多いスライドや、文字を大きく見せたい場合の調整クラス
 
 - このスライドは `smalltext` クラスを適用しているため、標準よりも少し小さい文字（85%）でレンダリングされます。
 - `tinytext` (70%)、`largetext` (115%)、`hugetext` (130%) も使用可能です。
 
-```bash
-$git clone [https://github.com/favourhong/Awesome-Marp.git$](https://github.com/favourhong/Awesome-Marp.git$) marp --theme ./my-awesome-base.css --watch ./test-presentation.md
-```
+    ```bash
+    $ git clone [https://github.com/favourhong/Awesome-Marp.git](https://github.com/favourhong/Awesome-Marp.git)
+    $ marp --theme ./my-am.css --watch ./test-presentation.md
+    ```
 
 ---
 
+<!-- _class: trans -->
+<!-- _paginate: false -->
 # ご清聴ありがとうございました
 ## 次章：質疑応答 (Q&A)
 ### テーマカラー全面塗りつぶしのトランジション (`trans`)
 
 ---
 
+<!-- _class: lastpage -->
+<!-- _paginate: false -->
 ###### Thank You / Contact Us
 
 <div class="icons">
