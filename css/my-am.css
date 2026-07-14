@@ -1,111 +1,93 @@
-/* @theme my-am*/
-/* Integrated Theme: my-base colors & typography + Awesome-Marp layouts */
+/* @theme my-am */
 
-@import 'default';
-@import 'https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.0/css/all.min.css';
-@auto-scaling true;
+@import 'am_template';
 
 :root {
-  /* --- Typography (from my-base & clean fallbacks) --- */
-  font-family: "Source Han Sans JP", sans-serif;
-  --font-family-main: "Source Han Sans JP", sans-serif;
-  --font-family-title: "Source Han Sans JP", sans-serif;
-  --font-family-code: 'Fira Code', Consolas, monospace;
-  
-  /* --- Color Palette (from my-base) --- */
+  /* --- Colors from my-base.css --- */
   --light-black: #3c3c3c;
   --jaxa-blue: #0061b0;
   --jaxa-red: #b00600;
   --jaxa-green: #aab000;
   --isas-purple: #46028e;
-  
-  /* --- Awesome-Marp Variable Mapping --- */
+
+  /* --- Additional Palette for Backgrounds & Text --- */
+  --jaxa-blue-light: rgba(0, 97, 176, 0.08);
+  --jaxa-red-light: rgba(176, 6, 0, 0.08);
+  --jaxa-green-light: rgba(170, 176, 0, 0.08);
+  --isas-purple-light: rgba(70, 2, 142, 0.08);
+  --light-black-light: rgba(60, 60, 60, 0.06);
+  --text-gray: #777777;
+
+  /* --- Mapping am_template variables to my-base colors --- */
   --color-main: var(--light-black);
   --color-title: #ffffff;
   --color-much: var(--jaxa-blue);
   --color-few: var(--jaxa-green);
   --color-coverbg: var(--jaxa-blue);
   --color-code-bg: #f4f6f8;
-  --color-quote: rgba(0, 97, 176, 0.08);
-  --color-navbar-bg: #e6f0f8;
+  --color-quote: var(--jaxa-blue-light);
+  --color-navbar-bg: #dfe4e7;
   --color-navbar-font: var(--light-black);
-  --color-footer: #666666;
+  --color-footer: var(--text-gray);
   --color-trans: var(--jaxa-blue);
-  
-  /* --- Default sizing --- */
-  --font-size-main: 24px;
-  --font-size-1: 48px;
-  --font-size-2-3: 36px;
-  --col_number: 2;
+
+  /* --- Fonts from my-base.css --- */
+  --font-family-main: "Source Han Sans JP", sans-serif;
+  --font-family-title: "Source Han Sans JP", sans-serif;
+  --font-family-footer: "Source Han Sans JP", sans-serif;
+  --font-family-code: 'Fira Code', Consolas, monospace;
+
+  /* Filters for cover images (placeholders if needed) */
+  --filter-b: brightness(100%) contrast(0%) grayscale(70%);
+  --filter-c: brightness(0%) contrast(60%) grayscale(80%);
+  --filter-e: brightness(100%) contrast(0%) grayscale(70%);
 }
 
-/* ==========================================
-   1. BASE SECTION & TYPOGRAPHY
-   ========================================== */
+/* Specific overrides to align with my-base behavior if desired */
 section {
   font-family: var(--font-family-main);
-  font-size: var(--font-size-main);
-  color: var(--color-main);
-  justify-content: start;
-  padding-top: 64pt;
-  display: flex;
-  flex-direction: column;
-  cursor: url("css/cursor.svg") 20 10, auto;
-  text-align: justify;
+  /* cursor: url("css/cursor.svg") 20 10, auto; */ /* Uncomment if cursor file exists and is desired */
 }
 
-/* Page numbering from my-base */
-section::after {
-  font-size: 0.6em;
-  content: attr(data-marpit-pagination) " / " attr(data-marpit-pagination-total);
-  position: absolute;
-  text-align: right;
-  top: 96%;
-  width: 100%;
-  right: 0;
-  left: -0.5em;
-  color: var(--color-footer);
-}
-
-footer {
-  font-size: 0.6em;
-  position: absolute;
-  text-align: left;
-  top: 96%;
-  width: 100%;
-  right: 0;
-  left: 0.5em;
-  color: var(--color-footer);
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-family-title);
-  color: var(--light-black);
-  margin-top: 0;
-}
-
-/* Default H1 banner style from my-base */
-h1:nth-of-type(1) {
-  color: #ffffff;
+/* Ensure H1 in cover pages looks good with JAXA blue */
+section.cover_a h1, section.cover_b h1 {
   background-color: var(--jaxa-blue);
-  border-top: 0.3em solid var(--jaxa-blue);
-  padding: 0;
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 100%;
-  height: 1.5em;
-  line-height: 1.5em;
-  text-indent: 0.5em;
-  font-size: 32pt;
+  color: #ffffff;
+}
+/* --- Beamer-style Callout Box Overrides --- */
+/* Headers */
+section.bq-blue blockquote > p:nth-child(1) { background-color: var(--jaxa-blue); }
+section.bq-red blockquote > p:nth-child(1) { background-color: var(--jaxa-red); }
+section.bq-green blockquote > p:nth-child(1) { background-color: var(--jaxa-green); }
+section.bq-purple blockquote > p:nth-child(1) { background-color: var(--isas-purple); }
+section.bq-black blockquote > p:nth-child(1) { background-color: var(--light-black); }
+
+/* Bodies (Overriding am_template's generic light-blue background) */
+section.bq-blue blockquote > p:not(:nth-child(1)) { background-color: var(--jaxa-blue-light) !important; color: var(--light-black); }
+section.bq-red blockquote > p:not(:nth-child(1)) { background-color: var(--jaxa-red-light) !important; color: var(--light-black); }
+section.bq-green blockquote > p:not(:nth-child(1)) { background-color: var(--jaxa-green-light) !important; color: var(--light-black); }
+section.bq-purple blockquote > p:not(:nth-child(1)) { background-color: var(--isas-purple-light) !important; color: var(--light-black); }
+section.bq-black blockquote > p:not(:nth-child(1)) { background-color: var(--light-black-light) !important; color: var(--light-black); }
+
+/* Ensure footer and page numbers use the correct color */
+footer, section::after {
+  color: var(--color-footer) !important;
 }
 
-h2, h3 {
-  color: var(--color-much);
-  font-size: var(--font-size-2-3);
+/* List Markers */
+ol li::marker, ul li::marker {
+  color: var(--jaxa-blue);
 }
 
-/* Text Highlights from my-base */
+/* Navbar specific override */
+section.navbar header {
+  border-bottom: 2px solid var(--jaxa-blue);
+}
+section.navbar header > strong {
+  color: var(--jaxa-blue);
+}
+
+/* Adjust strong/em to match my-base preferences */
 strong {
   font-style: italic;
   font-weight: bold;
@@ -121,348 +103,3 @@ em strong {
   color: var(--jaxa-blue);
 }
 
-a {
-  color: var(--jaxa-blue);
-  text-decoration: none;
-}
-a:hover {
-  text-decoration: underline;
-}
-a::after {
-  font-size: 0.6em;
-  padding-left: 0.5%;
-  content: "\f148";
-  font-family: "FontAwesome";
-  color: var(--color-much);
-}
-
-/* Figure placement */
-img[alt~="c"], img[alt*='#c'] { display: block; margin: 0 auto; }
-img[alt~="l"], img[alt*='#l'] { float: left; margin: 0 16pt 16pt 0; }
-img[alt~="r"], img[alt*='#r'] { float: right; margin: 0 16pt 16pt 0; }
-
-/* Lists & Blockquotes */
-ol, ul {
-  line-height: 1.5rem;
-  padding-left: 35px;
-}
-ol li::marker, ul li::marker {
-  color: var(--color-much);
-  font-weight: bold;
-}
-
-blockquote {
-  border-left: 6px solid var(--color-much);
-  padding: 12px 20px;
-  border-radius: 6px;
-  background-color: var(--color-quote);
-  margin: 1em 0;
-}
-blockquote > p::before {
-  color: var(--color-much);
-  padding-right: 8px;
-  content: "\f10d";
-  font-family: "FontAwesome";
-}
-
-code {
-  padding: 2px 6px;
-  border-radius: 4px;
-  background-color: var(--color-code-bg);
-  font-family: var(--font-family-code);
-  font-size: 0.85em;
-  color: var(--isas-purple);
-}
-
-pre {
-  border: 1px solid var(--color-few);
-  border-radius: 8px;
-  padding: 20px;
-  background-color: #fafbfc;
-  overflow: auto;
-  font-size: 0.85em;
-}
-
-/* ==========================================
-   2. COVER & TITLE PAGES
-   ========================================== */
-/* (my-base title page) */
-section.title {
-  --title-height: 160pt;
-  --subtitle-height: 40pt;
-  overflow: visible;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr var(--title-height) var(--subtitle-height) 1fr;
-  grid-template-areas: "." "title" "subtitle" ".";
-  background-color: #ffffff;
-}
-section.title h1, section.title h2 {
-  color: var(--light-black);
-  background-color: #ffffff;
-  border-top: 0;
-  text-align: left;
-  height: var(--area-height);
-  line-height: var(--area-height);
-  grid-area: subtitle;
-  --area-height: var(--subtitle-height);
-  font-size: calc(var(--area-height) * 0.6);
-  text-indent: 0;
-  position: relative;
-}
-section.title h1 {
-  grid-area: title;
-  --area-height: calc(var(--area-height) * 0.6);
-  font-size: calc(var(--title-height) * 0.3);
-  color: var(--jaxa-blue);
-}
-
-/* Awesome-Marp Cover A */
-section.cover_a {
-  background: linear-gradient(to bottom, var(--color-coverbg) 60%, white 40%);
-  text-align: center;
-  padding-top: 0;
-}
-section.cover_a h1 {
-  background-color: var(--color-coverbg);
-  padding: 0px 80px;
-  top: 28%;
-  width: 88%;
-  transform: translateX(-6%);
-  position: absolute;
-  border: none;
-  font-size: 45pt;
-  color: #fff;
-}
-section.cover_a h6 {
-  font-size: 28pt;
-  color: #fff;
-  padding: 0px 80px;
-  top: 45%;
-  width: 90%;
-  transform: translateX(-6%);
-  position: absolute;
-}
-section.cover_a p {
-  bottom: 8%;
-  width: 100%;
-  transform: translateX(-6%);
-  position: absolute;
-  text-align: center;
-}
-
-/* Awesome-Marp Cover B (Boxed) */
-section.cover_b h1 {
-  background-color: var(--color-coverbg);
-  padding: 30px;
-  width: 90%;
-  height: 25%;
-  top: 15%;
-  left: 5%;
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 20px 20px 0 0;
-  border: none;
-  color: #fff;
-}
-section.cover_b h6 {
-  font-size: 24pt;
-  color: #fff;
-  background-color: var(--color-coverbg);
-  width: 90%;
-  height: 12%;
-  top: 40%;
-  left: 5%;
-  position: absolute;
-  text-align: center;
-  border-radius: 0 0 20px 20px;
-}
-section.cover_b p {
-  bottom: 15%;
-  width: 100%;
-  position: absolute;
-  text-align: center;
-}
-
-/* ==========================================
-   3. TABLE OF CONTENTS (TOC)
-   ========================================== */
-section.toc_a ul {
-  list-style-type: none;
-  padding: 30px;
-  margin: 30px 10px;
-  border-radius: 0 0 20px 20px;
-  border-top: 8px solid var(--jaxa-blue);
-  background-color: white;
-  box-shadow: 0 10px 30px rgba(0, 97, 176, 0.15);
-}
-section.toc_a ul li { counter-increment: toc_a; margin-bottom: 12px; }
-section.toc_a ul li::before {
-  content: counter(toc_a);
-  margin-right: 20px;
-  width: 35px; height: 35px;
-  display: inline-flex;
-  align-items: center; justify-content: center;
-  background-color: var(--jaxa-blue);
-  color: white;
-  border-radius: 50%;
-  font-weight: bold;
-}
-
-/* ==========================================
-   4. ADVANCED MULTI-COLUMN LAYOUTS
-   ========================================== */
-/* Generic Grid Columns from my-base */
-div.columns {
-  display: grid;
-  grid-template-columns: repeat(var(--col_number), minmax(0, 1fr));
-  gap: 1.5rem;
-  margin-top: 1rem;
-}
-
-/* Awesome-Marp 2-Column Split Layouts */
-section.cols-2, section.cols-2-73, section.cols-2-64, section.cols-2-37, section.cols-2-46 {
-  display: grid;
-  gap: 1.5rem;
-  grid-template-rows: 15% 85%;
-  grid-template-areas: "slideheading slideheading" "leftpanel rightpanel";
-  padding-top: 40pt;
-}
-section.cols-2 { grid-template-columns: 50% 50%; }
-section.cols-2-73 { grid-template-columns: 68% 28%; }
-section.cols-2-64 { grid-template-columns: 58% 38%; }
-section.cols-2-37 { grid-template-columns: 28% 68%; }
-section.cols-2-46 { grid-template-columns: 38% 58%; }
-
-section.cols-2 h2, section.cols-2-73 h2, section.cols-2-64 h2, section.cols-2-37 h2, section.cols-2-46 h2,
-section.cols-2 h3, section.cols-2-73 h3, section.cols-2-64 h3, section.cols-2-37 h3, section.cols-2-46 h3 {
-  grid-area: slideheading;
-  margin: 0;
-  align-self: center;
-}
-.ldiv, .limg { grid-area: leftpanel; overflow: hidden; }
-.rdiv, .rimg { grid-area: rightpanel; overflow: hidden; }
-
-/* Awesome-Marp 3-Column Layout */
-section.cols-3 {
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 15% 85%;
-  grid-template-areas: "slideheading slideheading slideheading" "leftpanel middlepanel rightpanel";
-  padding-top: 40pt;
-}
-section.cols-3 h2, section.cols-3 h3 { grid-area: slideheading; margin: 0; align-self: center; }
-.mdiv, .mimg { grid-area: middlepanel; overflow: hidden; }
-
-/* Rows & Pin Layouts */
-section.rows-2 {
-  display: grid;
-  gap: 1rem;
-  grid-template-rows: 15% 40% 40%;
-  grid-template-areas: "slideheading" "toppanel" "bottompanel";
-  padding-top: 40pt;
-}
-section.rows-2 h2, section.rows-2 h3 { grid-area: slideheading; margin: 0; }
-.tdiv, .timg { grid-area: toppanel; }
-.bdiv, .bimg { grid-area: bottompanel; }
-
-section.pin-3 {
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: 50% 50%;
-  grid-template-rows: 15% 40% 40%;
-  grid-template-areas: "slideheading slideheading" "toppanel toppanel" "leftpanel rightpanel";
-  padding-top: 40pt;
-}
-section.pin-3 h2, section.pin-3 h3 { grid-area: slideheading; margin: 0; }
-
-/* ==========================================
-   5. LIST COLUMNS & BADGES
-   ========================================== */
-section.cols2_ol_sq ol, section.cols2_ol_sq ul,
-section.cols2_ol_ci ol, section.cols2_ol_ci ul,
-section.cols2_ul_sq ul, section.cols2_ul_ci ul {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem 3rem;
-  list-style-type: none;
-  padding-left: 10px;
-}
-section.cols2_ol_sq ol li, section.cols2_ol_ci ol li { counter-increment: col_list; margin-bottom: 8px; }
-section.cols2_ol_sq ol li::before {
-  content: counter(col_list);
-  display: inline-flex; width: 28px; height: 28px;
-  background-color: var(--jaxa-blue); color: white;
-  align-items: center; justify-content: center;
-  margin-right: 12px; font-weight: bold;
-}
-section.cols2_ol_ci ol li::before {
-  content: counter(col_list);
-  display: inline-flex; width: 28px; height: 28px;
-  background-color: var(--jaxa-blue); color: white;
-  align-items: center; justify-content: center;
-  border-radius: 50%; margin-right: 12px; font-weight: bold;
-}
-
-/* ==========================================
-   6. CALLOUTS & BOXES (Beamer Theorem-like)
-   ========================================== */
-section.bq-blue blockquote, section.bq-red blockquote, section.bq-green blockquote, section.bq-purple blockquote {
-  padding: 0; border: none; border-radius: 8px; overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08); background: #fff; margin: 1.5em 0;
-}
-section.bq-blue blockquote > p:nth-child(1),
-section.bq-red blockquote > p:nth-child(1),
-section.bq-green blockquote > p:nth-child(1),
-section.bq-purple blockquote > p:nth-child(1) {
-  margin: 0; padding: 8px 16px; color: white; font-weight: bold; font-size: 1.05em;
-}
-section.bq-blue blockquote > p:not(:nth-child(1)),
-section.bq-red blockquote > p:not(:nth-child(1)),
-section.bq-green blockquote > p:not(:nth-child(1)),
-section.bq-purple blockquote > p:not(:nth-child(1)) {
-  margin: 0; padding: 12px 16px; background-color: #f8fafc; color: var(--light-black);
-}
-/* Color mappings for Callouts */
-section.bq-blue blockquote > p:nth-child(1) { background-color: var(--jaxa-blue); }
-section.bq-red blockquote > p:nth-child(1) { background-color: var(--jaxa-red); }
-section.bq-green blockquote > p:nth-child(1) { background-color: var(--jaxa-green); }
-section.bq-purple blockquote > p:nth-child(1) { background-color: var(--isas-purple); }
-
-section.bq-blue blockquote > p:nth-child(1)::before { content: "\f518  "; font-family: "FontAwesome"; }
-section.bq-red blockquote > p:nth-child(1)::before { content: "\f0eb  "; font-family: "FontAwesome"; }
-section.bq-green blockquote > p:nth-child(1)::before { content: "\e0bb  "; font-family: "FontAwesome"; }
-section.bq-purple blockquote > p:nth-child(1)::before { content: "\f7e4  "; font-family: "FontAwesome"; }
-
-/* ==========================================
-   7. NAVBAR & SPECIAL SLIDES
-   ========================================== */
-section.navbar header {
-  background-color: var(--color-navbar-bg);
-  width: 100%; height: 36px;
-  position: absolute; top: 0; left: 0;
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 0 24px; font-size: 0.8em; color: var(--color-navbar-font);
-  border-bottom: 2px solid var(--jaxa-blue);
-}
-section.navbar header strong {
-  background: white; padding: 2px 12px; border-radius: 12px;
-  color: var(--jaxa-blue); font-style: normal;
-}
-
-section.trans {
-  background-color: var(--jaxa-blue);
-  justify-content: center; align-items: center;
-}
-section.trans h1, section.trans h2, section.trans h3, section.trans p {
-  color: white; background: transparent; border: none; position: static; text-align: center;
-}
-
-/* Size utility classes */
-section.tinytext { font-size: 70%; }
-section.smalltext { font-size: 85%; }
-section.largetext { font-size: 115%; }
-section.hugetext { font-size: 130%; }
