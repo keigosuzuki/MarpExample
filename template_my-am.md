@@ -13,7 +13,7 @@ footer: \ *JAXA/ISAS 統合プレゼンテーマ (my-am)* *Awesome-Marp スタ�
 <!-- _paginate: "" -->
 
 # JAXA / ISAS 統合プレゼンテーマ
-###### “my-base と Awesome Marp の融合 (Cover A)”
+###### “my-am (Cover A)”
 
 @発表者氏名
 所属部署・研究室
@@ -29,10 +29,10 @@ footer: \ *JAXA/ISAS 統合プレゼンテーマ (my-am)* *Awesome-Marp スタ�
 <!-- _paginate: "" -->
 
 - [カバーページのバリエーション](#3)
-- [目次ページのバリエーション](#7)
-- [多段組みレイアウト](#9)
-- [リスト分欄と装飾バッジ](#18)
-- [Beamer風 定理・注意ボックス (Callouts)](#24)
+- [目次ページのバリエーション](#8)
+- [多段組みレイアウト](#10)
+- [リストと装飾バッジ](#19)
+- [Beamer風 定理・注意ボックス (Callouts)](#25)
 - [ナビゲーションバー](#30)
 - [その他のスタイル設定](#32)
 - [最後のページ](#38)
@@ -62,7 +62,7 @@ footer: \ *JAXA/ISAS 統合プレゼンテーマ (my-am)* *Awesome-Marp スタ�
 <!-- _class: cover_c -->
 <!-- _paginate: "" -->
 <!-- _footer: "JAXA / ISAS" -->
-<!-- _header: "Logo Placeholder" -->
+<!-- _header: ![](./fig/scr_logo_toumei.png) -->
 
 # <!-- fit -->JAXA / ISAS 統合プレゼンテーマ
 ###### “シンプルレイアウト (Cover C)”
@@ -86,8 +86,8 @@ footer: \ *JAXA/ISAS 統合プレゼンテーマ (my-am)* *Awesome-Marp スタ�
 
 <!-- _class: cover_e -->
 <!-- _paginate: "" -->
-<!-- _footer: "Footer Logo Placeholder" -->
-<!-- _header: "Header Logo Placeholder" -->
+<!-- _footer: "" -->
+<!-- _header: ![](./fig/SCR_Logo_2014_blue.png) -->
 
 # <!-- fit -->JAXA / ISAS 統合プレゼンテーマ
 ###### “斜めグラデーション (Cover E)”
@@ -103,16 +103,16 @@ footer: \ *JAXA/ISAS 統合プレゼンテーマ (my-am)* *Awesome-Marp スタ�
 
 ---
 
-<!-- _header: 目次<br>CONTENTS<br>Logo Placeholder-->
+<!-- _header: 目次<br>CONTENTS<br>![](./fig/SCR_Logo_2014_blue.png)-->
 <!-- _class: toc_b -->
 <!-- _footer: "" -->
 <!-- _paginate: "" -->
 
 - [カバーページのバリエーション](#3)
-- [目次ページのバリエーション](#7)
-- [多段組みレイアウト](#9)
-- [リスト分欄と装飾バッジ](#18)
-- [Beamer風 定理・注意ボックス (Callouts)](#24)
+- [目次ページのバリエーション](#8)
+- [多段組みレイアウト](#10)
+- [リスト分欄と装飾バッジ](#19)
+- [Beamer風 定理・注意ボックス (Callouts)](#25)
 - [ナビゲーションバー](#30)
 - [その他のスタイル設定](#32)
 - [最後のページ](#38)
@@ -166,9 +166,9 @@ footer: \ *JAXA/ISAS 統合プレゼンテーマ (my-am)* *Awesome-Marp スタ�
 #### 補足エリア (40%)
 - 右側のコンパクトなエリアです。
 - 文字装飾テスト:
-  **赤色イタリック強調**
-  *緑色強調*
-  ***青色太字強調***
+  **太字**
+  *斜体*
+  ***太字斜体***
 
 </div>
 
@@ -313,85 +313,63 @@ footer: \ *JAXA/ISAS 統合プレゼンテーマ (my-am)* *Awesome-Marp スタ�
 
 </div>
 
-## 4. リスト分欄と装飾バッジ
+## 4. リストと装飾バッジ
 
 <!-- _class: trans -->
 <!-- _footer: "" -->
 <!-- _paginate: "" -->
 
-## 4.1 リストの2列分欄と装飾バッジ (数値リスト・四角)
+## 4.1 2列リスト (数値・四角)
 
 <!-- _class: cols2_ol_sq fglass -->
 
-- 偏好和效用
-- 预算约束和消费者的最优选择
-- 需求函数
-- 劳动力和储蓄的供给函数
-- 福利经济学：单人模型和多人模型
-- 企业理论：单投入品和多投入品模型
-- 完全竞争市场
-- 完全垄断、垄断竞争与双寡头垄断
+- 第一章
+- 第二章
+- 第三章
+- 第四章
+- 第五章
+- 第六章
+- 第七章
+- 第八章
 
-## 4.2 リストの2列分欄 (数値リスト・円形)
+## 4.2 2列リスト (数値・円形)
 
 <!-- _class: cols2_ol_ci fglass -->
 
-- 偏好和效用
-- 预算约束和消费者的最优选择
-- 需求函数
-- 劳动力和储蓄的供给函数
-- 福利经济学：单人模型和多人模型
-- 企业理论：单投入品和多投入品模型
-- 完全竞争市场
-- 完全垄断、垄断竞争与双寡头垄断
+- 第一章
+- 第二章
+- 第三章
+- 第四章
+- 第五章
+- 第六章
+- 第七章
+- 第八章
 
-## 4.3 リストの2列分欄 (箇条書き・四角)
+## 4.3 2列リスト (箇条書き・四角)
 
 <!-- _class: cols2_ul_sq fglass -->
 
-- 第一章：地方政府的权力与事务 
-- 第二章：财税与政府行为 
-- 第三章：政府投融资与债务 
-- 第四章：工业化中的政府角色 
-- 第五章：城市化与不平衡 
-- 第六章：债务与风险 
-- 第七章：国内国际失衡 
-- 第八章：政府与经济发展
+- 第一章
+- 第二章
+- 第三章
+- 第四章
+- 第五章
+- 第六章
+- 第七章
+- 第八章
 
-## 4.4 リストの2列分欄 (箇条書き・円形)
+## 4.4 2列リスト (箇条書き・円形)
 
 <!-- _class: cols2_ul_ci fglass -->
 
-- 第一章：地方政府的权力与事务 
-- 第二章：财税与政府行为 
-- 第三章：政府投融资与债务 
-- 第四章：工业化中的政府角色 
-- 第五章：城市化与不平衡 
-- 第六章：债务与风险 
-- 第七章：国内国际失衡 
-- 第八章：政府与经济发展
-
-## 4.5 単列リスト (数値・四角 / 円形)
-
-<!-- _class: cols-2 -->
-
-<div class="ldiv col1_ol_sq fglass">
-
-- 数値リスト・四角
-- `col1_ol_sq`
-- テスト項目 3
-- テスト項目 4
-
-</div>
-
-<div class="rdiv col1_ol_ci fglass">
-
-- 数値リスト・円形
-- `col1_ol_ci`
-- テスト項目 3
-- テスト項目 4
-
-</div>
+- 第一章
+- 第二章
+- 第三章
+- 第四章
+- 第五章
+- 第六章
+- 第七章
+- 第八章
 
 ## 5. Beamer風 定理・注意ボックス (Callouts)
 
@@ -399,14 +377,20 @@ footer: \ *JAXA/ISAS 統合プレゼンテーマ (my-am)* *Awesome-Marp スタ�
 <!-- _footer: "" -->
 <!-- _paginate: "" -->
 
+## 5.0 引用
+
+> これは引用です。
+
 ## 5.1 Beamer風ボックス: JAXA Blue (基本)
 
 <!-- _class: bq-blue -->
 
 > 定理 1.1 (軌道力学の基本方程式)
+>
 > このボックスはヘッダー部が **JAXA Blue** で着色されます。学術発表での「定理 (Theorem)」「定義 (Definition)」などの提示に最適です。
 
 > 注意 (Note)
+>
 > 同一スライド内に複数のブロック引用を書くと、それぞれが独立した美しいボックスとしてレンダリングされます。
 
 ## 5.2 Beamer風ボックス: JAXA Red (警告・重要)
@@ -414,6 +398,7 @@ footer: \ *JAXA/ISAS 統合プレゼンテーマ (my-am)* *Awesome-Marp スタ�
 <!-- _class: bq-red -->
 
 > 警告 / 重要課題 (Warning / Important Problem)
+>
 > ヘッダーが **JAXA Red** になるため、特に注目してほしい課題、例外事項、危険な条件などを強調する際に使用します。
 
 - 補足事項のテキストはボックスの外に通常通り記述できます。
@@ -425,6 +410,7 @@ footer: \ *JAXA/ISAS 統合プレゼンテーマ (my-am)* *Awesome-Marp スタ�
 <div class="ldiv">
 
 > 提案手法 (Proposed Method)
+>
 > こちらは `bq-green`（JAXA Green）のテストです。実験結果の考察などに適しています。
 
 </div>
@@ -432,6 +418,7 @@ footer: \ *JAXA/ISAS 統合プレゼンテーマ (my-am)* *Awesome-Marp スタ�
 <div class="rdiv bq-purple">
 
 > 考察 (Discussion)
+>
 > こちらは `bq-purple`（ISAS Purple）のテストです。
 
 </div>
@@ -441,7 +428,8 @@ footer: \ *JAXA/ISAS 統合プレゼンテーマ (my-am)* *Awesome-Marp スタ�
 <!-- _class: bq-black -->
 
 > 定義 (Definition)
-> こちらは `bq-black` のテストです。`am_template` の基本色（`--color-main` 相当）を使用します。
+>
+> こちらは `bq-black` （Light Black）のテストです。
 
 ## 6. ナビゲーションバー
 
@@ -468,7 +456,7 @@ footer: \ *JAXA/ISAS 統合プレゼンテーマ (my-am)* *Awesome-Marp スタ�
 
 <!-- _class: fixedtitleA -->
 
-- 自定義样式：`<!-- _class: fixedtitleA -->`
+- 定義HTML：`<!-- _class: fixedtitleA -->`
 - タイトルが上部に固定されます。
 
 ## 7.1 固定タイトル行 (fixedtitleB)
@@ -477,7 +465,7 @@ footer: \ *JAXA/ISAS 統合プレゼンテーマ (my-am)* *Awesome-Marp スタ�
 
 <div class="div">
 
-- 自定義样式：`<!-- _class: fixedtitleB -->`
+- 定義HTML：`<!-- _class: fixedtitleB -->`
 - タイトルが上部に固定され、背景色（JAXA Blue）が付きます。
 - コンテンツは `<div class="div">` で囲む必要があります。
 
@@ -491,7 +479,7 @@ footer: \ *JAXA/ISAS 統合プレゼンテーマ (my-am)* *Awesome-Marp スタ�
 
 #### 7.2 脚注のスタイル (footnote)
 
-- 自定義样式：`<!-- _class: footnote -->`
+- 定義HTML：`<!-- _class: footnote -->`
 - メインコンテンツを `<div class="tdiv">` に、脚注を `<div class="bdiv">` に記述します。
 - これにより、下部に点線で区切られた脚注エリアが作成されます$^1$。
 

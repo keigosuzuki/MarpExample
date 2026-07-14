@@ -54,24 +54,50 @@ section.cover_a h1, section.cover_b h1 {
   background-color: var(--jaxa-blue);
   color: #ffffff;
 }
+
 /* --- Beamer-style Callout Box Overrides --- */
-/* Headers */
-section.bq-blue blockquote > p:nth-child(1) { background-color: var(--jaxa-blue); }
-section.bq-red blockquote > p:nth-child(1) { background-color: var(--jaxa-red); }
-section.bq-green blockquote > p:nth-child(1) { background-color: var(--jaxa-green); }
-section.bq-purple blockquote > p:nth-child(1) { background-color: var(--isas-purple); }
-section.bq-black blockquote > p:nth-child(1) { background-color: var(--light-black); }
+/* The colour of a box is carried by inherited custom properties, so bq-* works
+   both on the section and on an inner <div> (e.g. a column of a cols-2 slide). */
+/* Marpit rewrites a bare `.foo` selector into `section .foo`, so the section
+   itself has to be matched explicitly for section-level bq-* classes. */
+section.bq-blue,   section .bq-blue   { --bq-color: var(--jaxa-blue);   --bq-color-light: var(--jaxa-blue-light); }
+section.bq-red,    section .bq-red    { --bq-color: var(--jaxa-red);    --bq-color-light: var(--jaxa-red-light); }
+section.bq-green,  section .bq-green  { --bq-color: var(--jaxa-green);  --bq-color-light: var(--jaxa-green-light); }
+section.bq-purple, section .bq-purple { --bq-color: var(--isas-purple); --bq-color-light: var(--isas-purple-light); }
+section.bq-black,  section .bq-black  { --bq-color: var(--light-black); --bq-color-light: var(--light-black-light); }
 
-/* Bodies (Overriding am_template's generic light-blue background) */
-section.bq-blue blockquote > p:not(:nth-child(1)) { background-color: var(--jaxa-blue-light) !important; color: var(--light-black); }
-section.bq-red blockquote > p:not(:nth-child(1)) { background-color: var(--jaxa-red-light) !important; color: var(--light-black); }
-section.bq-green blockquote > p:not(:nth-child(1)) { background-color: var(--jaxa-green-light) !important; color: var(--light-black); }
-section.bq-purple blockquote > p:not(:nth-child(1)) { background-color: var(--isas-purple-light) !important; color: var(--light-black); }
-section.bq-black blockquote > p:not(:nth-child(1)) { background-color: var(--light-black-light) !important; color: var(--light-black); }
+/* Header row */
+section[class*="bq-"] blockquote > p:nth-child(1) {
+  background-color: var(--bq-color) !important;
+}
+section[class*="bq-"] blockquote > p:nth-child(1) strong,
+section[class*="bq-"] blockquote > p:nth-child(1) em,
+section[class*="bq-"] blockquote > p:nth-child(1) code {
+  color: #ffffff;
+  background-color: transparent;
+}
 
-/* Ensure footer and page numbers use the correct color */
-footer, section::after {
+/* Body rows (overriding am_template's generic light-blue background) */
+section[class*="bq-"] blockquote > p:not(:nth-child(1)) {
+  background-color: var(--bq-color-light) !important;
+  color: var(--light-black) !important;
+}
+
+/* Icon of a bq-* box nested in a <div> (am_template only keys these off section) */
+div.bq-blue   blockquote > p:nth-child(1)::before { content: "\f518"; }
+div.bq-red    blockquote > p:nth-child(1)::before { content: "\f0eb"; }
+div.bq-green  blockquote > p:nth-child(1)::before { content: "\e0bb"; }
+div.bq-purple blockquote > p:nth-child(1)::before { content: "\f7e4"; }
+div.bq-black  blockquote > p:nth-child(1)::before { content: "\f5ad"; }
+
+/* Ensure footer and page numbers use the correct color.
+   footer text is written as *emphasis*, so em/strong need it too. */
+footer, section::after,
+footer em, footer strong, footer em strong {
   color: var(--color-footer) !important;
+}
+footer em, footer strong {
+  font-style: normal;
 }
 
 /* List Markers */
@@ -89,17 +115,93 @@ section.navbar header > strong {
 
 /* Adjust strong/em to match my-base preferences */
 strong {
-  font-style: italic;
   font-weight: bold;
   color: var(--jaxa-red);
 }
 
-em {
-  color: var(--jaxa-green);
+/* --- Panels --- */
+/* Drop the leading margin of a panel's first heading so the panel content
+   starts at the top of its grid area (rows-2 / pin-3 otherwise overflow). */
+.ldiv > :first-child, .mdiv > :first-child, .rdiv > :first-child,
+.tdiv > :first-child, .bdiv > :first-child, .div > :first-child {
+  margin-top: 0;
 }
 
-em strong {
-  font-weight: bold;
-  color: var(--jaxa-blue);
+/* --- Utility classes usable on a <div>, not only on the <section> --- */
+/* am_template scopes these to `section.<class>`, so they silently do nothing
+   when written on a column div. These rules restore the intended look. */
+div.tinytext  { font-size: 80%; }
+div.smalltext { font-size: 90%; }
+div.largetext { font-size: 115%; }
+div.hugetext  { font-size: 130%; }
+
+div.fglass ul {
+  padding: 20px 20px 20px 60px;
+  margin-left: -25px;
+  border-radius: 0px 0px 20px 20px;
+  border-top: 8px solid var(--color-navbar-font);
+  background-color: white;
+  box-shadow: 1px 1px 12px rgb(215, 224, 235);
+}
+
+/* --- Fixes for layouts that overflow the slide --- */
+/* am_template's rows add up to 97% plus two 1rem gaps, so a full bottom panel
+   (heading + list + table) runs into the footer. Give the bottom panel room. */
+section.rows-2 {
+  grid-template-rows: 7% 38% 55%;
+}
+
+/* The cover_e logo blocks sit on the blue areas, so their text has to be light. */
+section.cover_e header, section.cover_e footer {
+  color: #ffffff !important;
+}
+section.cover_e header {
+  line-height: 100px;
+}
+
+/* Marp's section is a block container centred with `place-content`, so
+   `justify-content` has no effect here — `align-content` is the one that works. */
+section.fixedtitleA {
+  align-content: start;
+}
+
+/* The oversized outlined watermark ran off the right edge and was clipped on top. */
+section.toc_a header {
+  width: 100%;
+  left: 0;
+  top: 0;
+  height: auto;
+  font-size: 640%;
+  line-height: 1.15;
+}
+
+/* Without an explicit `top` the absolutely positioned list is centred on its
+   static position and the last entries fall off the bottom of the slide. */
+section.toc_b > ul, section.toc_b > ol {
+  top: 16%;
+  line-height: 180%;
+}
+
+/* The contact icons overflowed the left edge (fixed -120px offset + 5em gaps). */
+section.lastpage {
+  padding: 0 60px;
+}
+section.lastpage div > ul {
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1em;
+  padding-left: 0;
+}
+section.lastpage div > ul > li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+}
+section.lastpage div > ul > li > ul {
+  padding-left: 0;
+}
+section.lastpage ul > li > ul > li {
+  margin-left: 0;
 }
 
