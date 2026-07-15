@@ -2,5 +2,6 @@ export default {
   themeSet: [
     'css'
   ],
-  allowLocalFiles: true
+  allowLocalFiles: true,
+  html: true
 }

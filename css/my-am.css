@@ -84,11 +84,11 @@ section[class*="bq-"] blockquote > p:not(:nth-child(1)) {
 }
 
 /* Icon of a bq-* box nested in a <div> (am_template only keys these off section) */
-div.bq-blue   blockquote > p:nth-child(1)::before { content: "\f518"; }
-div.bq-red    blockquote > p:nth-child(1)::before { content: "\f0eb"; }
-div.bq-green  blockquote > p:nth-child(1)::before { content: "\e0bb"; }
-div.bq-purple blockquote > p:nth-child(1)::before { content: "\f7e4"; }
-div.bq-black  blockquote > p:nth-child(1)::before { content: "\f5ad"; }
+div.bq-blue   blockquote > p:nth-child(1)::before { content: "\f518"; font-family: "Font Awesome 6 Free" !important; font-weight: 900 !important; color: #ffffff !important; }
+div.bq-red    blockquote > p:nth-child(1)::before { content: "\f0eb"; font-family: "Font Awesome 6 Free" !important; font-weight: 900 !important; color: #ffffff !important; }
+div.bq-green  blockquote > p:nth-child(1)::before { content: "\f19d"; font-family: "Font Awesome 6 Free" !important; font-weight: 900 !important; color: #ffffff !important; }
+div.bq-purple blockquote > p:nth-child(1)::before { content: "\f7e4"; font-family: "Font Awesome 6 Free" !important; font-weight: 900 !important; color: #ffffff !important; }
+div.bq-black  blockquote > p:nth-child(1)::before { content: "\f5ad"; font-family: "Font Awesome 6 Free" !important; font-weight: 900 !important; color: #ffffff !important; }
 
 /* Ensure footer and page numbers use the correct color.
    footer text is written as *emphasis*, so em/strong need it too. */

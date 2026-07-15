@@ -3,7 +3,7 @@
 
 @charset "UTF-8";
 @import 'default';
-@import 'https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.0/css/all.min.css';
+@import 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css';
 @import url(https://fonts.bunny.net/css?family=charm:700);
 @auto-scaling true;
 
@@ -102,10 +102,11 @@ blockquote strong {
 }
 
 blockquote>p::before {
-  color: var(--color-much);
+  color: var(--color-much) !important;
   padding-right: 2%;
   content: "\f10d"; 
-  font-family: "FontAwesome";
+  font-family: "Font Awesome 6 Free" !important;
+  font-weight: 900 !important;
 }
 
 a {
@@ -122,12 +123,15 @@ a::after {
   font-size: 0.6em;
   padding-left: 0.5%;
   content: "\f148"; /* f148 f0c1 f08e f14c f0c6 */
-  font-family: "FontAwesome";
-  color: var(--color-much);
+  font-family: "Font Awesome 6 Free" !important;
+  font-weight: 900 !important;
+  color: var(--color-much) !important;
 }
 
 section::after {
-  font-family: "FontAwesome";
+  font-family: "Font Awesome 6 Free" !important;
+  font-weight: 900 !important;
+  color: var(--color-footer) !important;
   font-size: var(--font-size-page);
   margin-right: -10px;
   margin-bottom: -14px;
@@ -136,7 +140,6 @@ section::after {
   padding: 4px 10px;
   border-radius: 5px;
   border: 1px solid var(--color-footer);
-  color: var(--color-footer);
 }
 
 footer{
@@ -1313,31 +1316,41 @@ section.bq-black blockquote>p:nth-child(1) {
 section.bq-blue blockquote>p:nth-child(1)::before {
   content: "\f518";
   padding-right: 2%;
-  font-family: "FontAwesome";
+  font-family: "Font Awesome 6 Free" !important;
+  font-weight: 900 !important;
+  color: #ffffff !important;
 }
 
 section.bq-red blockquote>p:nth-child(1)::before {
   content: "\f0eb";
   padding-right: 2%;
-  font-family: "FontAwesome";
+  font-family: "Font Awesome 6 Free" !important;
+  font-weight: 900 !important;
+  color: #ffffff !important;
 }
 
 section.bq-green blockquote>p:nth-child(1)::before {
-  content: "\e0bb";
+  content: "\f19d";
   padding-right: 2%;
-  font-family: "FontAwesome";
+  font-family: "Font Awesome 6 Free" !important;
+  font-weight: 900 !important;
+  color: #ffffff !important;
 }
 
 section.bq-purple blockquote>p:nth-child(1)::before {
   content: "\f7e4";
   padding-right: 2%;
-  font-family: "FontAwesome";
+  font-family: "Font Awesome 6 Free" !important;
+  font-weight: 900 !important;
+  color: #ffffff !important;
 }
 
 section.bq-black blockquote>p:nth-child(1)::before {
   content: "\f5ad";
   padding-right: 2%;
-  font-family: "FontAwesome";
+  font-family: "Font Awesome 6 Free" !important;
+  font-weight: 900 !important;
+  color: #ffffff !important;
 }
 
 section.lastpage  {
